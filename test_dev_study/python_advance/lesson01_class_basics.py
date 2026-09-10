@@ -41,7 +41,7 @@ class TestCase:
 
     # TODO: 打印用例最终状态
     def show_result(self):
-        reason =self.reason if self.reson else "无"
+        reason =self.reason if self.reason else "无"
         print(f"{self.case_id}|{self.title}|状态：{self.status}|失败原因：{reason}")
 
 
