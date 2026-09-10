@@ -23,7 +23,7 @@ class TestCase:
       self.case_id=case_id
       self.title=title
       self.satus="未执行"
-      self.reason=""
+      self.reason=None
       # 删除 pass，补全代码
 
     # TODO: 打印正在执行的用例信息
@@ -37,7 +37,7 @@ class TestCase:
     # TODO: 标记用例失败，记录原因
     def fail_case(self, reason):
         self.status="失败"
-        reason="1111"
+        self.reason=reason
 
     # TODO: 打印用例最终状态
     def show_result(self):
@@ -48,6 +48,13 @@ if __name__ == "__main__":
     # TODO: 创建用例对象并调用方法
   case1=TestCase("TC001","登录测试")
   case2=TestCase("TC002","注册测试")
+  case1.run()
+  case1.pass_case()
+  case1.shou_result()
+
+  case2.run()
+  case2.fail_case("失败")
+  case2.shou_result()
 
 
 
