@@ -22,7 +22,7 @@ class TestCase:
     def __init__(self, case_id, title):
       self.case_id=case_id
       self.title=title
-      self.satus="未执行"
+      self.status="未执行"
       self.reason=None
       # 删除 pass，补全代码
 
@@ -50,11 +50,11 @@ if __name__ == "__main__":
   case2=TestCase("TC002","注册测试")
   case1.run()
   case1.pass_case()
-  case1.shou_result()
+  case1.show_result()
 
   case2.run()
   case2.fail_case("失败")
-  case2.shou_result()
+  case2.show_result()
 
 
 
