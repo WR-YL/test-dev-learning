@@ -17,30 +17,53 @@
         2. 分别调用 run()、pass_case() / fail_case()、show_result()
         3. 其中一条用例标记通过，另一条标记失败并填写原因
 """
-
-
 class TestCase:
     # TODO: 在 __init__ 中初始化 case_id、title、status、reason
     def __init__(self, case_id, title):
-        pass  # 删除 pass，补全代码
+      self.case_id=case_id
+      self.title=title
+      self.satus="未执行"
+      self.reason=""
+      # 删除 pass，补全代码
 
     # TODO: 打印正在执行的用例信息
     def run(self):
-        pass
+        print(f"正在执行用例：{self.case_id} {self.title}")
 
     # TODO: 标记用例通过
     def pass_case(self):
-        pass
+        self.status="通过"
 
     # TODO: 标记用例失败，记录原因
     def fail_case(self, reason):
-        pass
+        self.status="失败"
+        reason="1111"
 
     # TODO: 打印用例最终状态
     def show_result(self):
-        pass
+        print(f"{self.case_id} {self.title}{self.status}{self.reason}")
 
 
 if __name__ == "__main__":
     # TODO: 创建用例对象并调用方法
-    pass
+  case1=TestCase("TC001","登录测试")
+  case2=TestCase("TC002","注册测试")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
