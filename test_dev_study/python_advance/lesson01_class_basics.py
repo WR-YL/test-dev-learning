@@ -41,7 +41,8 @@ class TestCase:
 
     # TODO: 打印用例最终状态
     def show_result(self):
-        print(f"{self.case_id} {self.title}{self.status}{self.reason}")
+        reason =self.reason if self.reson else "无"
+        print(f"{self.case_id}|{self.title}|状态：{self.status}|失败原因：{reason}")
 
 
 if __name__ == "__main__":
@@ -53,7 +54,7 @@ if __name__ == "__main__":
   case1.show_result()
 
   case2.run()
-  case2.fail_case("失败")
+  case2.fail_case("密码错误")
   case2.show_result()
 
 
