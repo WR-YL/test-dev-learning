@@ -30,3 +30,35 @@ python lesson01_class_basics.py
 - `show_result()` 打印用例最终状态。
 
 在 `__main__` 中创建 2 个用例对象，模拟一条通过、一条失败，打印结果。
+
+---
+
+## 第二课：类方法与静态方法（@classmethod / @staticmethod）
+
+### 知识点
+- **实例方法**（第一课学的）：第一个参数是 `self`，能访问实例属性。调用方式 `对象.方法()`。
+- **类方法** `@classmethod`：第一个参数是 `cls`（类本身，不是实例），能访问/修改类级别的数据。常用场景是**工厂方法**——提供另一种创建对象的方式。
+- **静态方法** `@staticmethod`：没有 `self` 也没有 `cls`，就是个挂在类下面的普通函数。用于和类逻辑相关、但不需要访问实例/类数据的工具方法。
+- 三者对比：
+  | 方法类型 | 装饰器 | 第一个参数 | 能访问实例属性？ | 能访问类属性？ | 典型用途 |
+  |---------|--------|-----------|----------------|---------------|---------|
+  | 实例方法 | 无 | `self` | ✅ | ✅ | 操作单个对象 |
+  | 类方法 | `@classmethod` | `cls` | ❌ | ✅ | 工厂方法/替代构造 |
+  | 静态方法 | `@staticmethod` | 无 | ❌ | ❌ | 工具函数 |
+
+### 文件说明
+- `lesson02_classmethod_staticmethod.py`：本课练习模板，扩展第一课的 `TestCase` 类，新增类方法和静态方法。
+
+### 运行命令
+```bash
+cd test_dev_study/python_advance
+python lesson02_classmethod_staticmethod.py
+```
+
+### 代码说明
+在第一课 `TestCase` 基础上扩展：
+- `from_dict(cls, data)`（类方法）：从字典批量创建用例对象，典型工厂方法。
+  - 输入示例：`{"case_id": "TC001", "title": "登录测试"}`
+  - 返回一个 `TestCase` 实例。
+- `generate_case_id(prefix)`（静态方法）：根据前缀生成用例编号，如 `generate_case_id("TC")` 返回 `"TC_0001"`。不需要访问实例或类数据，所以用静态方法。
+- `show_total_count()`（类方法）：打印当前一共创建了多少个用例对象（用类属性计数）。
